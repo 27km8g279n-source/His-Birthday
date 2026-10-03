@@ -379,7 +379,30 @@ button:active {
         I can't explain. I hope I get to see this smile
         for the rest of my life.
     </p>
+<section class="story">
 
+    <div class="photo-card">
+        <img src="photo6.jpeg" alt="Us ♡">
+    </div>
+
+    <h2>Your smile is one of my favourite things. ♡</h2>
+
+    <p>
+        And this... this is one of my favourite versions
+        of you...
+    </p>
+
+    <p>
+        Seeing you happy makes me happy...
+    </p>
+
+</section>
+
+<!-- PASTE LOVE METER HERE -->
+
+<section class="love-meter">
+    ...
+</section>
 </section>
     
 
@@ -421,7 +444,20 @@ button:active {
 <audio id="birthdaySong" preload="auto">
     <source src="Haareya_-_Rock_Version_-_Ayushman_Khurrana_(mp3.pm).mp3" type="audio/mpeg">
 </audio>
+<style>
+.story,
+.letter {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease, transform 1s ease;
+}
 
+.story.show,
+.letter.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
 <script>
 
 function openSurprise() {
@@ -459,7 +495,21 @@ function createHearts() {
         }, 7000);
     }
 }
+const sections = document.querySelectorAll(".story, .letter");
 
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, {
+    threshold: 0.15
+});
+
+sections.forEach((section) => {
+    observer.observe(section);
+});
 </script>
 
 </body>
