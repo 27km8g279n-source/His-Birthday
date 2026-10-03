@@ -207,7 +207,21 @@ button:active {
     font-style: italic;
     font-size: 20px !important;
 }
+.final-heart {
+    font-size: 55px;
+    margin-top: 35px;
+    animation: heartbeat 1.5s infinite;
+}
 
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
 .heart {
     position: fixed;
     bottom: -20px;
@@ -466,9 +480,11 @@ button:active {
     </p>
 
     <p class="signature">
-        Forever yours,<br>
-        Fihi ♡
-    </p>
+    Forever yours,<br>
+    Fihi ♡
+</p>
+
+<div class="final-heart">♡</div>
 
 </section>
 
